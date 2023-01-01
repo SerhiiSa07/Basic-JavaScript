@@ -559,3 +559,204 @@ const half = ({max, min}) => (max + min) / 2.0;
 
 // ------------------------------- Answer -------------------------
 
+const result = {
+  success: ["max-length", "no-amd", "prefer-arrow-functions"],
+  failure: ["no-var", "var-on-top", "linebreak"],
+  skipped: ["no-extra-semi", "no-dup-keys"]
+};
+function makeList(arr) {
+  // Only change code below this line
+
+  // Only change code above this line
+const failureItems = arr.map(e=>`<li class="text-warning">${e}</li>`)
+  return failureItems;
+}
+
+const failuresList = makeList(result.failure);
+
+// --------------------------------assignments---------------------
+
+// ES6 добавляет хорошую поддержку для простого определения литералов объектов.
+
+// Рассмотрим следующий код:
+
+// const getMousePosition = (x, y) => ({
+//   x: x,
+//   y: y
+// });
+// getMousePosition— это простая функция, которая возвращает объект, содержащий два свойства. ES6 предоставляет синтаксический сахар для устранения избыточности записи x: x. Вы можете просто написать xодин раз, и он будет преобразован в x: x(или что-то подобное) под капотом. Вот та же функция, что и выше, переписанная для использования этого нового синтаксиса:
+
+// const getMousePosition = (x, y) => ({ x, y });
+// Используйте сокращение свойства объекта с литералами объекта, чтобы создать и вернуть объект со свойствами name, age и .gender
+
+// ------------------------------- Answer -------------------------
+
+const createPerson = (name, age, gender) => {
+  // Only change code below this line
+  return {name, age, gender};
+  // Only change code above this line
+};
+
+// --------------------------------assignments---------------------
+
+// При определении функций внутри объектов в ES5 мы должны использовать ключевое слово functionследующим образом:
+
+// const person = {
+//   name: "Taylor",
+//   sayHello: function() {
+//     return `Hello! My name is ${this.name}.`;
+//   }
+// };
+
+// В ES6 вы можете function полностью удалить ключевое слово и двоеточие при определении функций в объектах. Вот пример такого синтаксиса:
+
+// const person = {
+//   name: "Taylor",
+//   sayHello() {
+//     return `Hello! My name is ${this.name}.`;
+//   }
+// };
+// Рефакторинг функции setGear внутри объекта bicycle для использования сокращенного синтаксиса, описанного выше.
+
+// ------------------------------- Answer -------------------------
+
+// Only change code below this line
+const bicycle = {
+  gear: 2,
+  setGear(newGear) {
+    this.gear = newGear;
+  }
+};
+// Only change code above this line
+bicycle.setGear(3);
+console.log(bicycle.gear);
+
+
+// --------------------------------assignments---------------------
+
+
+// ES6 предоставляет новый синтаксис для создания объектов с использованием ключевого слова class .
+
+// Следует отметить, что class синтаксис — это всего лишь синтаксис, а не полноценная классовая реализация объектно-ориентированной парадигмы, в отличие от таких языков, как Java, Python, Ruby и т. д.
+
+// В ES5 объект можно создать, определив constructor функцию и используя newключевое слово для создания экземпляра объекта.
+
+// В ES6 classобъявление имеет constructorметод, который вызывается с помощью newключевого слова. Если constructorметод не определен явно, то он определяется неявно без аргументов.
+
+// // Explicit constructor
+// class SpaceShuttle {
+//   constructor(targetPlanet) {
+//     this.targetPlanet = targetPlanet;
+//   }
+//   takeOff() {
+//     console.log("To " + this.targetPlanet + "!");
+//   }
+// }
+
+// // Implicit constructor
+// class Rocket {
+//   launch() {
+//     console.log("To the moon!");
+//   }
+// }
+
+// const zeus = new SpaceShuttle('Jupiter');
+// // prints To Jupiter! in console
+// zeus.takeOff();
+
+// const atlas = new Rocket();
+// // prints To the moon! in console
+// atlas.launch();
+// Следует отметить, что classключевое слово объявляет новую функцию, к которой добавляется конструктор. Этот конструктор вызывается, когда newвызывается для создания нового объекта.
+
+// Примечание. По соглашению следует использовать UpperCamelCase для имен классов ES6, как SpaceShuttleуказано выше.
+
+// Метод constructor— это специальный метод для создания и инициализации объекта, созданного с помощью класса. Вы узнаете больше об этом в разделе «Объектно-ориентированное программирование» сертификата JavaScript Algorithms And Data Structures Certification.
+
+// Используйте classключевое слово и напишите constructorдля создания Vegetableкласса.
+
+// Класс Vegetable позволяет вам создать овощной объект со свойством name, которое передается в класс constructor.
+
+
+// ------------------------------- Answer -------------------------
+
+
+// Only change code below this line
+
+// Only change code above this line
+class Vegetable {constructor(name){
+  this.name = name;
+}
+}
+const carrot = new Vegetable('carrot');
+console.log(carrot.name); // Should display 'carrot'
+
+
+// --------------------------------assignments---------------------
+
+
+// Вы можете получать значения из объекта и устанавливать значение свойства внутри объекта.
+
+// Они классически называются геттерами и сеттерами .
+
+// Функции-получатели предназначены для простого возврата (получения) значения частной переменной объекта пользователю без прямого доступа пользователя к частной переменной.
+
+// Функции установки предназначены для изменения (установки) значения частной переменной объекта на основе значения, переданного в функцию установки. Это изменение может включать вычисления или даже полную перезапись предыдущего значения.
+
+// class Book {
+//   constructor(author) {
+//     this._author = author;
+//   }
+//   // getter
+//   get writer() {
+//     return this._author;
+//   }
+//   // setter
+//   set writer(updatedAuthor) {
+//     this._author = updatedAuthor;
+//   }
+// }
+// const novel = new Book('anonymous');
+// console.log(novel.writer);
+// novel.writer = 'newAuthor';
+// console.log(novel.writer);
+// Консоль отобразит строки anonymousи newAuthor.
+
+// Обратите внимание на синтаксис, используемый для вызова методов получения и установки. Они даже не похожи на функции. Геттеры и сеттеры важны, потому что они скрывают детали внутренней реализации.
+
+// Примечание. По соглашению перед именем частной переменной ставится знак подчеркивания ( _). Однако сама практика не делает переменную частной.
+
+// Используйте classключевое слово для создания Thermostatкласса. Принимает constructorтемпературу по Фаренгейту.
+
+// В классе создайте getterдля получения температуры в градусах Цельсия и setterдля установки температуры в градусах Цельсия.
+
+// Помните, что C = 5/9 * (F - 32)и F = C * 9.0 / 5 + 32, где Fзначение температуры в градусах Фаренгейта, а Cзначение той же температуры в градусах Цельсия.
+
+// Примечание. Когда вы реализуете это, вы будете отслеживать температуру внутри класса по одной шкале, либо по Фаренгейту, либо по Цельсию.
+
+// Это сила геттера и сеттера. Вы создаете API для другого пользователя, который может получить правильный результат независимо от того, за кем вы следите.
+
+// Другими словами, вы абстрагируете детали реализации от пользователя.
+
+
+// ------------------------------- Answer -------------------------
+
+
+// Only change code below this line
+class Thermostat {
+  constructor(fahrenheit) {
+    this._tempInCelsius = 5/9 * (fahrenheit - 32);
+  }
+  get temperature(){
+    return this._tempInCelsius;
+  }
+  set temperature(newTemp){
+    this._tempInCelsius = newTemp;
+  }
+}
+// Only change code above this line
+
+const thermos = new Thermostat(76); // Setting in Fahrenheit scale
+let temp = thermos.temperature; // 24.44 in Celsius
+thermos.temperature = 26;
+temp = thermos.temperature; // 26 in Celsius
