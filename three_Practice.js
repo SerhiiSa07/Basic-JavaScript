@@ -975,3 +975,35 @@ makeServerRequest.then(result => {
 
 
 // --------------------------------assignments---------------------
+
+// catch это метод, используемый, когда ваше обещание было отклонено. Он выполняется сразу после вызова reject метода обещания. Вот синтаксис:
+
+// myPromise.catch(error => {
+
+// });
+// error аргумент, передаваемый reject методу.
+
+// Добавьте catch метод к вашему обещанию. Используйте error в качестве параметра его функцию обратного вызова и войдите errorв консоль.
+
+// ------------------------------- Answer -------------------------
+
+const makeServerRequest = new Promise((resolve, reject) => {
+  // responseFromServer is set to false to represent an unsuccessful response from a server
+  let responseFromServer = false;
+
+  if(responseFromServer) {
+    resolve("We got the data");
+  } else {
+    reject("Data not received");
+  }
+});
+
+makeServerRequest.then(result => {
+  console.log(result);
+});
+makeServerRequest.catch(error => {
+  console.log(error);
+});
+
+
+//-----------------------------------------------------------------------------------------------------------
