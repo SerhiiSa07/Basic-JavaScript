@@ -1,6 +1,4 @@
-
 // ------------////////////////------assignment----------/////////////------------
-
 
 // Регулярные выражения используются в языках программирования для сопоставления частей строк. Вы создаете шаблоны, чтобы помочь вам сделать это сопоставление.
 
@@ -15,13 +13,11 @@
 
 // Примените регулярное выражение myRegex к строке myString, используя .test()метод.
 
-
 //----------///////////------Answer-----------///////////--------------------
 
-let myString = "Hello, World!";
+let myString = 'Hello, World!';
 let myRegex = /Hello/;
 let result = myRegex.test(myString); // Change this line
-
 
 // ------------////////////////------assignment----------/////////////------------
 
@@ -44,7 +40,7 @@ let result = myRegex.test(myString); // Change this line
 
 //----------///////////------Answer-----------///////////--------------------
 
-let waldoIsHiding = "Somewhere Waldo is hiding in this text.";
+let waldoIsHiding = 'Somewhere Waldo is hiding in this text.';
 let waldoRegex = /Waldo/; // Change this line
 let result = waldoRegex.test(waldoIsHiding);
 
@@ -62,7 +58,7 @@ let result = waldoRegex.test(waldoIsHiding);
 
 //----------///////////------Answer-----------///////////--------------------
 
-let petString = "James has a pet cat.";
+let petString = 'James has a pet cat.';
 let petRegex = /dog|cat|bird|fish|change/; // Change this line
 let result = petRegex.test(petString);
 
@@ -78,3 +74,54 @@ let result = petRegex.test(petString);
 
 //----------///////////------Answer-----------///////////--------------------
 
+let myString = 'freeCodeCamp';
+let fccRegex = /freeCodeCamp/i; // Change this line
+let result = fccRegex.test(myString);
+
+// // ------------////////////////------assignment----------/////////////------------
+
+// До сих пор вы только проверяли, существует ли шаблон в строке или нет. Вы также можете извлечь фактические совпадения, которые вы нашли с помощью .match()метода.
+
+// Чтобы использовать .match()метод, примените метод к строке и передайте регулярное выражение в круглых скобках.
+
+// Вот пример:
+
+// "Hello, World!".match(/Hello/);
+// let ourStr = "Regular expressions";
+// let ourRegex = /expressions/;
+// ourStr.match(ourRegex);
+// Здесь вернется первый matchи вернется ["Hello"]второй ["expressions"].
+
+// Обратите внимание, что .matchсинтаксис является «противоположным» .testметоду, который вы использовали до сих пор:
+
+// 'string'.match(/regex/);
+// /regex/.test('string');
+// Примените .match()метод для извлечения строки coding.
+
+//----------///////////------Answer-----------///////////--------------------
+
+let extractStr = "Extract the word 'coding' from this string.";
+let codingRegex = /coding/; // Change this line
+let result = extractStr.match(/coding/); // Change this line
+
+// // ------------////////////////------assignment----------/////////////------------
+
+// До сих пор вы могли извлекать или искать шаблон только один раз.
+
+// let testStr = "Repeat, Repeat, Repeat";
+// let ourRegex = /Repeat/;
+// testStr.match(ourRegex);
+// Вот matchбы вернуться ["Repeat"].
+
+// Чтобы искать или извлекать шаблон более одного раза, вы можете использовать флаг глобального поиска: g.
+
+// let repeatRegex = /Repeat/g;
+// testStr.match(repeatRegex);
+// И здесь matchвозвращает значение["Repeat", "Repeat", "Repeat"]
+
+// Используя регулярное выражение starRegex, найдите и извлеките оба Twinkleслова из строки twinkleStar.
+
+// Примечание.
+// У вас может быть несколько флагов в вашем регулярном выражении, например/search/gi
+
+//----------///////////------Answer-----------///////////--------------------
